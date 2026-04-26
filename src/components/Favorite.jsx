@@ -1,12 +1,12 @@
 
-export const Favorite = ({ hearts }) => {
+export const Favorite = ({ hearts, onLike }) => {
     const count = hearts;
 
     return (
         <article className="favorite-container">
-            <div className="favorite-button-wrapper">
+            <button className="favorite-button-wrapper" onClick={onLike}>
                 <img src="./images/red-heart.png" alt="red-heart" />
-            </div>
+            </button>
             <span>x {count}</span>
         </article>
 

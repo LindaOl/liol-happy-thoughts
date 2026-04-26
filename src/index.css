@@ -12,14 +12,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /*variables*/
+
+  /*FONTS*/
+  --font-family-button: "DM Mono", monospace;
+
+  --font-family-text: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  /*GENERAL*/
   --main-background: #ffffff;
-  --box-shadow: rgb(0, 0, 0) 6px 6px 2px;
+  --box-shadow: rgb(0, 0, 0) 12px 12px 1px -4px;
+  --container-border: 2px solid rgb(109, 109, 109);
 
   /*SUBMIT*/
   --submit-background: #f2f0f0;
-
-  --submit-container-border: 2px solid rgb(109, 109, 109);
   --input-box-border: 2px solid rgb(216, 216, 216);
   --submit-button-color: #ffadad;
 
@@ -29,9 +36,8 @@
   --favorite-bg-color: #eaeaea;
   --timer-color: #cbcbcb;
   --hearts-counts-color: #949494;
-
-
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
