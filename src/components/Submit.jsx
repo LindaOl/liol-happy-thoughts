@@ -7,10 +7,9 @@ export const Submit = ({ onAddMessage }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitting:", newMessage);
 
         if (!newMessage.trim()) return;
-
+        /*error, outside 5-140 characters range, make error msg and show msg for 3 sec*/
         if (newMessage.trim().length < 5 || newMessage.length > 140) {
             setError("Message must be between 5 and 140 characters");
             setTimeout(() => setError(""), 3000);
@@ -18,15 +17,15 @@ export const Submit = ({ onAddMessage }) => {
             return;
         }
 
-        /*calling for the prop returns newMessage state, which is the content of the textArea*/
+        /* Send the new message to App (triggers API call and state update) */
         onAddMessage(newMessage);
         /*then, empty textarea*/
         setNewMessage("");
     };
 
-
     return (
         <section className="submit-card-container">
+
             <h3>What's making you happy right now?</h3>
             <form onSubmit={handleSubmit}>
 
@@ -37,7 +36,6 @@ export const Submit = ({ onAddMessage }) => {
                     onChange={(e) => setNewMessage(e.target.value)}
                 ></textarea>
 
-                {/*if wrong character amount is submitted, show this*/}
                 {error && (
                     <div className="error-msg">
                         <p>{error}</p>
@@ -51,6 +49,7 @@ export const Submit = ({ onAddMessage }) => {
                 </button>
 
             </form>
+
         </section>
     );
 };

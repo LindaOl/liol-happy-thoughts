@@ -1,9 +1,7 @@
-
 export const Time = ({ createdAt }) => {
 
     const now = new Date();
     const created = new Date(createdAt);
-    /*Gives me the diff in milliseconds*/
     const diffMs = now - created;
     /*convert to seconds*/
     const diffSeconds = Math.floor(diffMs / 1000);
@@ -17,17 +15,18 @@ export const Time = ({ createdAt }) => {
     let timeAgo = "";
 
     if (seconds < 60) {
-        timeAgo = "just now";
+        timeAgo = `${seconds} seconds ago`;
     } else if (minutes < 60) {
-        timeAgo = `${minutes} min ago`;
+        timeAgo = `${minutes} minutes ago`;
     } else if (hours < 24) {
-        timeAgo = `${hours} h ago`;
+        timeAgo = `${hours} hours ago`;
     } else {
         timeAgo = `${days} days ago`;
     }
 
     return (
         <article>
+
             <p>{timeAgo}</p>
 
         </article>

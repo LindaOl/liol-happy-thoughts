@@ -2,23 +2,23 @@
 
 Replace this readme with your own information about the project. You can include things like:
 
-- Brief description of the assignment
-- How you approached the task, what tools and techniques you used, and how you planned it
-- If you had more time, what would be next?
-- How to run the project locally
+# Description of the assignment
+- Make an app to read and add messages using React state and by fetching and posting data to an API
+
+# Approach
+- Wrote down the components and states i thought i would need
+- Used Postman to look att the API structure
+- Made the .jsx files I thought I would need
+- Made the html and basic styling, using export/import between components
+- Made fetch for all messages
+- Worked on the message list, submit form, likes and the time stamp, using useState and useEffect, and functions
+- Tweaked styling
+- used Postman to check the API and what/how the API recieved and stored data
+
+# Improvements or additions
+- The app only shows 20 messages, making all other happy thoughts obsolete. Maybe I would add a "random happy thought" button.
+
+
 
 ## View it live
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+[Website](https://liol-happy-thoughts.pages.dev/)

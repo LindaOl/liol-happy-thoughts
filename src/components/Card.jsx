@@ -4,6 +4,7 @@ import { Favorite } from "./Favorite";
 export const Card = ({ message, onLike }) => {
     return (
         <div className="card-container">
+
             <p>{message.message}</p>
 
             <div className="favorite-and-time-wrapper">
@@ -13,6 +14,7 @@ export const Card = ({ message, onLike }) => {
                 />
                 <Time createdAt={message.createdAt} />
             </div>
+
         </div>
     );
 };

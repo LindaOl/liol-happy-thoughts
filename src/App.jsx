@@ -4,40 +4,28 @@ import { useState, useEffect } from "react";
 import { Submit } from "./components/Submit";
 import { CardsList } from "./components/CardsList";
 
-
 export const App = () => {
   const [messageList, setMessageList] = useState([]);
 
-
-  /*DISPLAY MESSAGES LOGIC*/
-  /*Render fetchMessage on loading the page, empty [] makes it ONLY on page load*/
+  /* Fetch messages when component mounts */
   useEffect(() => {
     fetchMessages();
   }, []);
 
-  /*Render when messaList updates */
-  useEffect(() => {
-    console.log("messageList updated:", messageList);
-  }, [messageList]);
-
-
-  /*First i fetch the API and get the json*/
+  /* Fetch all thoughts from API */
   const fetchMessages = () => {
     fetch("https://happy-thoughts-api-4ful.onrender.com/thoughts")
-      .then((respons) => respons.json())
+      .then((response) => response.json())
       .then((messages) => {
-        console.log("Fetched messages:", messages);
         setMessageList(messages);
       })
       .catch((err) => {
         console.error("Failed to fetch tasks:", err);
-      })
-  }
+      });
+  };
 
-
-  /*SUBMIT FORM LOGIC*/
+  /* Add a new message via API and prepend it to the list */
   const handleAddMessage = async (message) => {
-    console.log("Received in App:", message);
     const response = await fetch("https://happy-thoughts-api-4ful.onrender.com/thoughts", {
       method: "POST",
       headers: {
@@ -48,13 +36,12 @@ export const App = () => {
 
     const data = await response.json();
 
-    /* Add the new message at the top of the object, data is added, and then all the older posts follow*/
+    /* Add the new message at the top of the list */
     setMessageList((prev) => [data, ...prev]);
-    console.log(data);
   };
 
 
-  /*handle adding a like*/
+  /* Send like request and update message in state */
   const handleLike = async (id) => {
     const response = await fetch(
       `https://happy-thoughts-api-4ful.onrender.com/thoughts/${id}/like`,
@@ -63,10 +50,9 @@ export const App = () => {
       }
     );
 
-    /*when run, get the updated message*/
     const updatedMessage = await response.json();
 
-    /*update the state, go through previous list, replace only the one that matches the id of the one clicked */
+    /* Replace the liked message with updated version */
     setMessageList((prev) =>
       prev.map((msg) =>
         msg._id === id ? updatedMessage : msg
@@ -79,7 +65,6 @@ export const App = () => {
 
       <Submit onAddMessage={handleAddMessage} />
       <CardsList thoughts={messageList} onLike={handleLike} />
-
 
     </div>
   )
