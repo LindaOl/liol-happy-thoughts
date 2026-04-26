@@ -3,7 +3,7 @@ import { Favorite } from "./Favorite";
 
 export const Card = ({ message, onLike }) => {
     return (
-        <div className="card-container">
+        <div className="card-container popin">
 
             <p>{message.message}</p>
 

@@ -35,6 +35,9 @@ export const Submit = ({ onAddMessage }) => {
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                 ></textarea>
+                <p className="character-counter">
+                    {newMessage.length} / 140
+                </p>
 
                 {error && (
                     <div className="error-msg">
