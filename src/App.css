@@ -1,0 +1,183 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-background);
+    align-items: center;
+    padding: 1em;
+}
+
+
+/*SUBMIT CARD*/
+.submit-card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--submit-background);
+    width: 100%;
+    align-items: start;
+    gap: 1.1em;
+    margin-bottom: 1em;
+    box-shadow: var(--box-shadow);
+    padding: 1em;
+    border: var(--submit-container-border);
+}
+
+.submit-card-container h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.submit-card-container form {
+    width: 100%;
+}
+
+.add-message-input {
+    width: 70%;
+    border: var(--input-box-border);
+    padding: 0.5em;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    height: 80px;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: var(--submit-button-color);
+    border-radius: 30px;
+    padding: 1em;
+    margin-bottom: 0.4em;
+    font-family: "DM Mono", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: none
+}
+
+.submit-button img {
+    padding: 0 0.3em;
+    width: 35px;
+}
+
+
+
+/*MESSAGE CARD*/
+.card-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    align-items: center;
+}
+
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-background);
+    align-items: start;
+    margin-bottom: 1em;
+    padding: 1.5em;
+    box-shadow: var(--box-shadow);
+    border: var(--submit-container-border);
+    gap: 1.1em;
+    width: 100%;
+}
+
+
+.favorite-and-time-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.favorite-and-time-wrapper p {
+    margin: 0;
+    color: var(--timer-color);
+}
+
+.favorite-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--hearts-counts-color);
+}
+
+.favorite-button-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 99px;
+    background-color: var(--favorite-bg-color);
+    padding: 0.8em;
+}
+
+.favorite-button-wrapper img {
+    width: 30px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    /*SUBMIT CARD*/
+    .submit-card-container {
+        width: 70vw;
+    }
+
+    .submit-card-container h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .add-message-input {
+        padding: 0.5em;
+        font-size: 1.1rem;
+        width: 100%;
+        height: 80px;
+    }
+
+    .submit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        padding: 1em;
+        margin-bottom: 1em;
+        font-size: 1.1rem;
+    }
+
+
+    /*MESSAGE CARDS*/
+
+    .card-container {
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*SUBMIT CARD*/
+    .submit-card-container {
+        width: 50vw;
+    }
+
+    .card-container {
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    /*SUBMIT CARD*/
+    .submit-card-container {
+        width: 40vw;
+    }
+
+    .card-container {
+        width: 40vw;
+    }
+}
