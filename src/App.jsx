@@ -1,4 +1,5 @@
 import "./App.css";
+import "./loading.css";
 import { useState, useEffect } from "react";
 
 import { Submit } from "./components/Submit";
@@ -6,6 +7,7 @@ import { CardsList } from "./components/CardsList";
 
 export const App = () => {
   const [messageList, setMessageList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   /* Fetch messages when component mounts */
   useEffect(() => {
@@ -14,13 +16,19 @@ export const App = () => {
 
   /* Fetch all thoughts from API */
   const fetchMessages = () => {
+    setLoading(true);
+
     fetch("https://happy-thoughts-api-4ful.onrender.com/thoughts")
       .then((response) => response.json())
       .then((messages) => {
+        console.log("Fetched messages:", messages);
         setMessageList(messages);
       })
       .catch((err) => {
         console.error("Failed to fetch tasks:", err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -33,6 +41,16 @@ export const App = () => {
       },
       body: JSON.stringify({ message }),
     });
+
+    if (!response.ok) {
+      try {
+        const errorData = await response.json();
+        console.error("Error:", errorData);
+      } catch {
+        console.error("Failed to add message");
+      }
+      return;
+    }
 
     const data = await response.json();
 
@@ -50,6 +68,16 @@ export const App = () => {
       }
     );
 
+    if (!response.ok) {
+      try {
+        const errorData = await response.json();
+        console.error("Error:", errorData);
+      } catch {
+        console.error("Failed to like message");
+      }
+      return;
+    }
+
     const updatedMessage = await response.json();
 
     /* Replace the liked message with updated version */
@@ -64,7 +92,7 @@ export const App = () => {
     <div className="app-container">
 
       <Submit onAddMessage={handleAddMessage} />
-      <CardsList thoughts={messageList} onLike={handleLike} />
+      <CardsList thoughts={messageList} onLike={handleLike} loading={loading} />
 
     </div>
   )

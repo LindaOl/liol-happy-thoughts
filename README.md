@@ -14,6 +14,8 @@ Replace this readme with your own information about the project. You can include
 - Worked on the message list, submit form, likes and the time stamp, using useState and useEffect, and functions
 - Tweaked styling
 - used Postman to check the API and what/how the API recieved and stored data
+- Added "loading in progress"
+- Added code to catch errors
 
 # Improvements or additions
 - The app only shows 20 messages, making all other happy thoughts obsolete. Maybe I would add a "random happy thought" button.
