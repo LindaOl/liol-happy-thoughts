@@ -21,7 +21,6 @@ export const App = () => {
     fetch("https://happy-thoughts-api-4ful.onrender.com/thoughts")
       .then((response) => response.json())
       .then((messages) => {
-        console.log("Fetched messages:", messages);
         setMessageList(messages);
       })
       .catch((err) => {
